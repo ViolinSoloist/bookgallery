@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // processa dados do CSV
     try {
         const response = await fetch('src/colecao.csv');
-        if (!response.ok) throw new Error(`erro ao carregar CSV: ${response.status} AAAAAAAAAAAAA O QUE TÁ DANDO ERRADO PORRAAAAA`);
+        if (!response.ok) throw new Error(`erro ao carregar CSV: ${response.status} AAAAAAAAAAAAA O QUE TÁ DANDO ERRADO`);
 
         const csvData = await response.text();
         const linhas = csvData.split('\n').filter(linha => linha.trim() !== '');
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             const img = document.createElement('img');
             img.src = `src/imgs/${livro.imagem}`;
-            img.alt = `Capa de: ${livro.titulo}. Espero que você não seja cego. Se não eu só perdi tempo separando imagem da descrição`;
+            img.alt = `Capa de: ${livro.titulo}.`;
             img.classList.add('imagem');
             img.addEventListener('click', (event) => {
                 abrirModal(livro.titulo,livro.escritor,livro.genero,livro.referencia,livro.comprar);
