@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Teste</title>
+    <style>
+
+        .modal {
+            display: none;
+            position: fixed; /* Fixo na tela */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6); /* Fundo escuro semi-transparente */
+            z-index: 1; /* Garante que fique acima de outros elementos */
+        }
+        .modalAberto {
+            display: block;
+        }
+        .popup {
+            position: absolute; /* Posiciona relativo ao modal */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /*Centraliza perfeitamente*/
+            background-color: aliceblue;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <button id="abrirmodal">Abrir modal</button>
+    <div class="modal" >
+        <div class="popup">
+            <h1>Batata</h1>
+            <p>Lorem Ipsum teste teste teste
+            </p>
+            <button id="close">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        const botaoAbrir = document.getElementById("abrirmodal");
+        const botaoFechar = document.getElementById("close");
+        const modal = document.querySelector(".modal");
+        const popup = document.querySelector(".popup");
+        botaoAbrir.addEventListener('click',abrirModal);
+        botaoFechar.addEventListener('click',fecharModal);
+
+        function abrirModal() {
+            modal.classList.add('modalAberto'); // Apenas adiciona a classe
+        }
+        
+        function fecharModal() {
+            modal.classList.remove('modalAberto'); // Apenas remove a classe
+        }
+    </script>
+</body>
+</html>
